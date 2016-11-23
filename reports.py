@@ -54,7 +54,17 @@ def count_by_genre(file_name, genre):
 
 
 def get_line_number_by_title(file_name, title):
-    return None
+    list_of_games = []
+
+    with open(file_name, mode="r") as my_file:
+        for lines in my_file:
+            list_of_games.append(lines.replace('\n', "").split(sep='\t'))
+
+    for i in range(0, len(list_of_games)):
+        if list_of_games[i][0] == title:
+            return i + 1
+
+    raise ValueError("Could not find it")
 
 
 #  Bonus
