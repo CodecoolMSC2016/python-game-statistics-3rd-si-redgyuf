@@ -91,4 +91,20 @@ def get_genres(file_name):
 
 
 def when_was_top_sold_fps(file_name):
-    return None
+    list_of_games = []
+    max_num_of_sold = 0
+
+    with open(file_name, mode="r") as my_file:
+        for lines in my_file:
+            list_of_games.append(lines.replace('\n', "").split(sep='\t'))
+
+    for i in range(0, len(list_of_games)):
+        if list_of_games[i][3] == "First-person shooter":
+            if float(list_of_games[i][1]) > max_num_of_sold:
+                max_num_of_sold = float(list_of_games[i][1])
+
+    for game in list_of_games:
+        if float(game[1]) == max_num_of_sold:
+            return int(game[2])
+
+    raise ValueError("There is no game with genre First-person shooter")
