@@ -30,6 +30,7 @@ def get_latest(file_name):
             list_of_games.append(lines.replace('\n', "").split(sep='\t'))
 
     latest_game_year = 0
+
     for game in list_of_games:
         if int(game[2]) > latest_game_year:
             latest_game_year = int(game[2])
@@ -68,12 +69,25 @@ def get_line_number_by_title(file_name, title):
 
 
 #  Bonus
-def sort_abs(file_name):
-    return None
+def sort_abc(file_name):
+    list_of_games = []
+
+    with open(file_name, mode="r") as my_file:
+        for lines in my_file:
+            list_of_games.append(lines.replace('\n', "").split(sep='\t'))
+
+    return sorted([game[0] for game in list_of_games], key=lambda game_title: game_title.lower())
 
 
 def get_genres(file_name):
-    return None
+    list_of_games = []
+
+    with open(file_name, mode="r") as my_file:
+        for lines in my_file:
+            list_of_games.append(lines.replace('\n', "").split(sep='\t'))
+
+    return sorted(set([game[3] for game in list_of_games]),
+                  key=lambda game_genre: game_genre.lower())
 
 
 def when_was_top_sold_fps(file_name):
