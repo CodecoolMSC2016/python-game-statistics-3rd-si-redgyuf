@@ -22,7 +22,20 @@ def decide(file_name, year):
 
 
 def get_latest(file_name):
-    return None
+    list_of_games = []
+    name_of_latest_game = ""
+
+    with open(file_name, mode="r") as my_file:
+        for lines in my_file:
+            list_of_games.append(lines.replace('\n', "").split(sep='\t'))
+
+    latest_game_year = 0
+    for game in list_of_games:
+        if int(game[2]) > latest_game_year:
+            latest_game_year = int(game[2])
+            name_of_latest_game = game[0]
+
+    return name_of_latest_game
 
 
 def count_by_genre(file_name, genre):
