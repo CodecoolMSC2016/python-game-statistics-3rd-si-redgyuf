@@ -103,8 +103,9 @@ def when_was_top_sold_fps(file_name):
             if float(list_of_games[i][1]) > max_num_of_sold:
                 max_num_of_sold = float(list_of_games[i][1])
 
-    for game in list_of_games:
-        if float(game[1]) == max_num_of_sold:
-            return int(game[2])
+    for i in range(0, len(list_of_games)):
+        if list_of_games[i][3] == "First-person shooter":
+            if float(list_of_games[i][1]) == max_num_of_sold:
+                return int(list_of_games[i][2])
 
     raise ValueError("There is no game with genre First-person shooter")
