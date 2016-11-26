@@ -44,7 +44,18 @@ def get_selling_avg(file_name):
 
 
 def count_longest_title(file_name):
-    pass
+    list_of_games = []
+    length_of_longest_title = 0
+
+    with open(file_name, mode="r") as my_file:
+        for lines in my_file:
+            list_of_games.append(lines.replace('\n', "").split(sep='\t'))
+
+    for i in range(0, len(list_of_games)):
+        if len(list_of_games[i][0]) > length_of_longest_title:
+            length_of_longest_title = len(list_of_games[i][0])
+
+    return length_of_longest_title
 
 
 def get_date_avg(file_name):
