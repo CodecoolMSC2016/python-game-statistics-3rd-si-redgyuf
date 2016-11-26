@@ -91,7 +91,20 @@ def get_game(file_name, title):
 
 
 def count_grouped_by_genre(file_name):
-    pass
+    list_of_games = []
+    dict_of_genres = {}
+
+    with open(file_name, mode="r") as my_file:
+        for lines in my_file:
+            list_of_games.append(lines.replace('\n', "").split(sep='\t'))
+
+    for game in list_of_games:
+        if game[3] not in dict_of_genres:
+            dict_of_genres[game[3]] = 1
+        else:
+            dict_of_genres[game[3]] += 1
+
+    return dict_of_genres
 
 
 def get_date_ordered(file_name):
