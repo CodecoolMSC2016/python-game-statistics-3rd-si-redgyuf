@@ -108,4 +108,17 @@ def count_grouped_by_genre(file_name):
 
 
 def get_date_ordered(file_name):
-    pass
+    list_of_games = []
+
+    with open(file_name, mode="r") as my_file:
+        for lines in my_file:
+            list_of_games.append(lines.replace('\n', "").split(sep='\t'))
+
+    sorted_list = sorted(list_of_games, key=lambda game: game[0])
+    sorted_list = sorted(sorted_list, key=lambda game: game[2], reverse=True)
+
+    sorted_names = []
+    for game in sorted_list:
+        sorted_names.append(game[0])
+
+    return sorted_names
