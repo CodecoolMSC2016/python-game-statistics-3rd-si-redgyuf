@@ -1,3 +1,6 @@
+import math
+
+
 def get_most_played(file_name):
     list_of_games = []
 
@@ -59,7 +62,17 @@ def count_longest_title(file_name):
 
 
 def get_date_avg(file_name):
-    pass
+    list_of_games = []
+    total_year = 0
+
+    with open(file_name, mode="r") as my_file:
+        for lines in my_file:
+            list_of_games.append(lines.replace('\n', "").split(sep='\t'))
+
+    for i in range(0, len(list_of_games)):
+        total_year += float(list_of_games[i][2])
+
+    return math.ceil(total_year / len(list_of_games))
 
 
 def get_game(file_name, title):
