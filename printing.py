@@ -1,3 +1,5 @@
+# Prints out the return values of the functions
+
 from reports import *
 
 

@@ -1,3 +1,5 @@
+# Export the return values of the functions to a file (game_answers_export.txt)
+
 from reports import *
 import json
 

@@ -1,3 +1,7 @@
+
+
+# How many games are in the file?
+# Expected output of the function: integer
 def count_games(file_name):
     counter = 0
 
@@ -8,6 +12,8 @@ def count_games(file_name):
     return counter
 
 
+# Is there a game from a given year?
+# Expected output of the function: boolean value
 def decide(file_name, year):
     list_of_games = []
 
@@ -21,6 +27,9 @@ def decide(file_name, year):
     return False
 
 
+# Which was the latest game?
+# Other expectation: if there is more than one, then return the first from the file
+# Expected output of the function: string
 def get_latest(file_name):
     list_of_games = []
     name_of_latest_game = ""
@@ -39,6 +48,8 @@ def get_latest(file_name):
     return name_of_latest_game
 
 
+# How many games do we have by genre?
+# Expected output of the function: integer
 def count_by_genre(file_name, genre):
     counter = 0
     list_of_games = []
@@ -54,6 +65,9 @@ def count_by_genre(file_name, genre):
     return counter
 
 
+# What is the line number of the given game (by title)?
+# Expected output of the function: integer (if there is no game found,
+# then raises ValueError exception)
 def get_line_number_by_title(file_name, title):
     list_of_games = []
 
@@ -68,7 +82,9 @@ def get_line_number_by_title(file_name, title):
     raise ValueError("Could not find it")
 
 
-#  Bonus
+#  Bonus #
+# What is the alphabetical ordered list of the titles?
+# Expected output of the function: a list of strings
 def sort_abc(file_name):
     list_of_games = []
 
@@ -79,6 +95,9 @@ def sort_abc(file_name):
     return sorted([game[0] for game in list_of_games], key=lambda game_title: game_title.lower())
 
 
+# What are the genres?
+# Expected output of the function: a list of the genres (without
+# duplicates, in alphabetical order)
 def get_genres(file_name):
     list_of_games = []
 
@@ -90,6 +109,9 @@ def get_genres(file_name):
                   key=lambda game_genre: game_genre.lower())
 
 
+# What is the release date of the top sold "First-person shooter" game?
+# Expected output of the function: integer (if there is no game with genre
+# "First-person shooter" then raises ValueError exception
 def when_was_top_sold_fps(file_name):
     list_of_games = []
     max_num_of_sold = 0

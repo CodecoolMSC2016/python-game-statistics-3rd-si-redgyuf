@@ -1,6 +1,10 @@
 import math
 
 
+# What is the title of the most played game?
+# Expected output of the function: (string)
+# Other expectation:  if there is more than one, then return the first
+# from the file
 def get_most_played(file_name):
     list_of_games = []
 
@@ -18,6 +22,8 @@ def get_most_played(file_name):
             return list_of_games[i][0]
 
 
+# How many copies have been sold total?
+# Expected output of the function: (number)
 def sum_sold(file_name):
     list_of_games = []
     total_sold = 0
@@ -32,6 +38,10 @@ def sum_sold(file_name):
     return total_sold
 
 
+# What is the average selling?
+# Expected output of the function: (number)
+# Other expectation: if there is more than one, then return the first from
+# the file
 def get_selling_avg(file_name):
     list_of_games = []
     total_sold = 0
@@ -46,6 +56,8 @@ def get_selling_avg(file_name):
     return total_sold / len(list_of_games)
 
 
+# How many characters long is the longest title?
+# Expected output of the function: (number)
 def count_longest_title(file_name):
     list_of_games = []
     length_of_longest_title = 0
@@ -61,6 +73,9 @@ def count_longest_title(file_name):
     return length_of_longest_title
 
 
+# What is the average of the release dates?
+# Expected output of the function: average year (number)
+# Other expectation: the return value must be the rounded up average
 def get_date_avg(file_name):
     list_of_games = []
     total_year = 0
@@ -75,6 +90,9 @@ def get_date_avg(file_name):
     return math.ceil(total_year / len(list_of_games))
 
 
+# What properties has a game?
+# Expected output of the function: a list of all the properties of the
+# game (a list of various type)
 def get_game(file_name, title):
     list_of_games = []
 
@@ -87,9 +105,11 @@ def get_game(file_name, title):
             list_of_games[i][1:3] = map(float, list_of_games[i][1:3])
             return list_of_games[i]
 
+
 # Bonus
-
-
+# How many games are there grouped by genre?
+# Expected output of the function: a dictionary with this structure: {
+# [genre] : [count] }
 def count_grouped_by_genre(file_name):
     list_of_games = []
     dict_of_genres = {}
@@ -107,6 +127,11 @@ def count_grouped_by_genre(file_name):
     return dict_of_genres
 
 
+# What is the date ordered list of the games?
+# Expected output of the function: the date ordered list of the titles (list of string)
+# The secondary ordering rule is the alphabetical ordering of the titles.
+# So if there are titles from the same year, you need to order them
+# alphabetically in ascending order.
 def get_date_ordered(file_name):
     list_of_games = []
 
